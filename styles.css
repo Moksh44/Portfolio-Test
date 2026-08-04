@@ -549,11 +549,7 @@ body {
 
 #hd-modal {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    height: 100dvh;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background: #000000;
     z-index: 2000;
     display: flex;
@@ -1224,13 +1220,13 @@ body {
 .bp-title-svg {
     width: 100%;
     max-width: 500px;
-    height: auto;
+    height: clamp(50px, 11vw, 72px);
     overflow: visible;
 }
 
 .bp-title-svg text {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 60px;
+    font-size: clamp(32px, 11vw, 60px);
     font-weight: 900;
     letter-spacing: 8px;
     fill: transparent;
@@ -2436,7 +2432,7 @@ img {
     }
 
    #hd-draw-toggle {
-       bottom: 30px;
+       bottom: 18px;
        left: 18px;
     }
 
@@ -2464,7 +2460,7 @@ img {
 
    #hd-pic-title {
        font-size: 9px;
-       bottom: 30px;
+       bottom: 22px;
        letter-spacing: 5px;
     }
 
@@ -2510,6 +2506,7 @@ img {
     .active-slide .tw-title { animation-name: flickerFadeMobile; animation-play-state: running; }
     .active-slide .ke-title { animation-name: diamondSliceMobile; animation-play-state: running; }
     .active-slide .dl-title { animation-name: levitatingFloatMobile; animation-play-state: running; }
+    .bp-title-svg text { letter-spacing: 5px; }
 
     .aw-title, .ldr-title, .tw-title, .sc-title, .ke-title, .dl-title {
         white-space: nowrap !important;
