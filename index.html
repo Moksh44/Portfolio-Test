@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="universe">
+        <div id="intro-sequence">
+            <span class="typewriter-text">Welcome to my space.</span>
+        </div>
+        
+        <div class="planet" id="planet-1">
+            <svg class="planet-halo" viewBox="0 0 100 100">
+                <path id="arc-astronomy" d="M 10 50 A 40 40 0 0 1 90 50" fill="transparent" />
+                <text><textPath href="#arc-astronomy" startOffset="50%" text-anchor="middle">ASTRONOMY</textPath></text>
+            </svg>
+            <div class="info-panel">
+                <div class="connector-line"></div>
+                <div class="panel-content">
+                    <div class="panel-title">ASTRONOMY</div>
+                    <div class="panel-desc">
+                        <span>Space, Stars and Spectrum</span>
+                        <span>My Love for astronomy</span>
+                    </div>
+                    <div class="panel-action">Click to Enter</div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="planet" id="planet-2">
+            <svg class="planet-halo" viewBox="0 0 100 100">
+                <path id="arc-music" d="M 10 50 A 40 40 0 0 1 90 50" fill="transparent" />
+                <text><textPath href="#arc-music" startOffset="50%" text-anchor="middle">MUSIC</textPath></text>
+            </svg>
+            <div class="info-panel">
+                <div class="connector-line"></div>
+                <div class="panel-content">
+                    <div class="panel-title">MUSIC</div>
+                    <div class="panel-desc">
+                        <span>Listen, Vibe and Repeat</span>
+                        <span>My top tracks and artists</span>
+                    </div>
+                    <div class="panel-action">Click to Enter</div>
+                </div>
+            </div>
+        </div>      
+
+        <div class="planet" id="planet-3">
+            <svg class="planet-halo" viewBox="0 0 100 100">
+                <path id="arc-nature" d="M 10 50 A 40 40 0 0 1 90 50" fill="transparent" />
+                <text><textPath href="#arc-nature" startOffset="50%" text-anchor="middle">NATURE</textPath></text>
+            </svg>
+            <div class="info-panel">
+                <div class="connector-line"></div>
+                <div class="panel-content">
+                    <div class="panel-title">NATURE</div>
+                    <div class="panel-desc">
+                        <span>Skies, Sunsets and Seasons</span>
+                        <span>Aesthetic side of the nature</span>
+                    </div>
+                    <div class="panel-action">Click to Enter</div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="planet" id="planet-4">
+            <svg class="planet-halo" viewBox="0 0 100 100">
+                <path id="arc-projects" d="M 10 50 A 40 40 0 0 1 90 50" fill="transparent" />
+                <text><textPath href="#arc-projects" startOffset="50%" text-anchor="middle">PROJECTS</textPath></text>
+            </svg>
+            <div class="info-panel">
+                <div class="connector-line"></div>
+                <div class="panel-content">
+                    <div class="panel-title">PROJECTS</div>
+                    <div class="panel-desc">
+                        <span>Manifesting random hobbies</span>
+                        <span>The progress of my passions</span>
+                    </div>
+                    <div class="panel-action">Click to Enter</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sun"></div>
+    </div>
+
+    <div id="phase-content" class="hidden-ui">
+
+        <div id="edge-light"></div>
+            <button id="exit-button">&larr; Return</button>
+
+            <!-- MUSIC: PASSWORD SCREEN -->
+            <div id="content-music-password" class="section-container">
+                <div class="password-box">
+                    <svg class="caution-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <div class="password-text">Wait! Can you guess my fav music genre?</div>
+                    <div class="input-group">
+                        <input type="text" id="music-password-input" autocomplete="off">
+                        <button id="music-password-submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MUSIC: MAIN CONTENT -->
+            <div id="content-music" class="section-container">
+
+                <div id="music-display-area">
+
+                    <div id="music-tabs-container">
+                        <button class="music-toggle-btn" id="music-toggle-btn">SONGS</button>
+                    </div>
+
+                    <div id="artist-top-quote" class="dynamic-quote hidden"></div>
+                    
+                    <div id="artists-grid" class="music-grid hidden">
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/74KM79TiuVKeVCqs8QtB0B?utm_source=generator&si=a46c44d50c374387" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/5L1lO4eRHmJ7a0Q6csE5cT?utm_source=generator&si=ccd7d1b70d714466" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/00FQb4jTyendYWaN8pK0wa?utm_source=generator&si=cb6ff1f69b434e6d" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/1Xyo4u8uXC1ZmMpatF05PJ?utm_source=generator&si=4c0283ec1f1f45c6" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/41MozSoPIsD1dJM0CLPjZF?utm_source=generator&si=616112d00d644058" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/6M2wZ9GZgrQXHCFfjv46we?utm_source=generator&si=80f96b7cb91f45ea" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/1Xylc3o4UrD53lo9CvFvVg?utm_source=generator&si=a31a751b47d44cd1" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/3c0gDdb9lhnHGFtP4prQpn?utm_source=generator&si=4e96aeb04eae473c" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/45dkTj5sMRSjrmBSBeiHym?utm_source=generator&si=3421bda10d74474a" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/7vk5e3vY1uw9plTHJAMwjN?utm_source=generator&si=dd154b381c214c65" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/4SpbR6yFEvexJuaBpgAU5p?utm_source=generator&si=39776513dabc4655" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/78rUTD7y6Cy67W1RVzYs7t?utm_source=generator&si=a34ba1be59404dd7" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/25uiPmTg16RbhZWAqwLBy5?utm_source=generator&si=650f96bb79a846b5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/06HL4z0CvFAxyc27GXpf02?utm_source=generator&si=e23c5e12296d46e6" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/250b0Wlc5Vk0CoUsaCY84M?utm_source=generator&si=1489ed26d88344f4" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/66CXWjxzNUsdJxJ2JdwvnR?utm_source=generator&si=46666f4e2cb940ef" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/5INjqkS1o8h1imAzPqGZBb?utm_source=generator&si=7ece9caba36e4c1d" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/36cgvBn0aadzOijnjjwqMN?utm_source=generator&si=3269ca7e88034509" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/6YVMFz59CuY7ngCxTxjpxE?utm_source=generator&si=e62c8fe05441479c" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/540vIaP2JwjQb9dm3aArA4?utm_source=generator&si=8ed7c6f9e1144545" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/08hHTBHlv0WRXWlyrsb6Kv?utm_source=generator&si=3f82bd5e5c7445c1" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/6KImCVD70vtIoJWnq6nGn3?utm_source=generator&si=722cb46365bb4c75" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/1SIocsqdEefUTE6XKGUiVS?utm_source=generator&si=6524940bcdeb4ead" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/artist/7n2Ycct7Beij7Dj7meI4X0?utm_source=generator&si=34b0a8255f0b4626" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    <div id="songs-grid" class="music-grid songs-deck">
+                        <div class="song-slide active-slide">
+                            <div class="start-symbol">
+                            <span>GO</span> 
+                            </div>
+                            <div class="start-text">Tap or Swipe down to start</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <svg class="bp-title-svg" viewBox="0 0 600 100">
+                                <text x="50%" y="82%" text-anchor="middle">BLACKPINK</text>
+                            </svg>
+
+                            <div class="bp-iframes-container">
+                                <iframe class="bp-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/6bvZRLLkBKkmgpBJTTj3QK?utm_source=generator&si=515998224b274a6b" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="bp-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/69BIczdH6QMnFx7dsSssN8?utm_source=generator&si=5a44e3cde42243bc" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="bp-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/3AgMOlgdrG9RJXDWifcjVd?utm_source=generator&si=fdd8e24f00074d6a" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="bp-footer-sentence">Ultimate Genesis of my K-pop world.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="aw-title">ALAN WALKER</h2>
+                            <div class="aw-iframes-container">
+                            <iframe class="aw-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/7gHs73wELdeycvS48JfIos?utm_source=generator&si=919b32c110114e83" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            <iframe class="aw-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/4n7jnSxVLd8QioibtTDBDq?utm_source=generator&si=42d9d560f4e64476" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="aw-footer-sentence">The most nostalgic music of all time.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="ldr-title">LANA DEL REY</h2>
+                            <div class="ldr-iframes-container">
+                                <iframe class="ldr-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/3QhfFRPkhPCR1RMJWV1gde?utm_source=generator&si=00e993a26d014c77" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="ldr-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/1Ist6PR2BZR3n2z2Y5R6S1?utm_source=generator&si=a68cff8012cc4162" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="ldr-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/4dtbA0yooUSB9wLisRuJby?utm_source=generator&si=97fa2c68766e43a5" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="ldr-footer-sentence">A golden voice hidden in my heart.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="tw-title">THE WEEKND</h2>
+                            <div class="tw-iframes-container">
+                                <iframe class="tw-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator&si=ffbdb21b549a47bf" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="tw-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/2p8IUWQDrpjuFltbdgLOag?utm_source=generator&si=a0801246722647c3" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="tw-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/1QDxMdjfamgKvm4hNCvPG7?utm_source=generator&si=14e33312b1154810" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="tw-footer-sentence">A perfect touch of motivational energy.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="sc-title">SABRINA CARPENTER</h2>
+                            <div class="sc-iframes-container">
+                                <iframe class="sc-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/2oADPwknKEfMtwpMnr7xfg?utm_source=generator&si=699d976c35534273" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="sc-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/4Wos0h9ECU2Z3oJMTQxpbc?utm_source=generator&si=74fc27d9d8a14940" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="sc-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/6dgUya35uo964z7GZXM07g?utm_source=generator&si=b5599a99a814424b" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> 
+                            </div>
+                            <div class="sc-footer-sentence">The instant healing zone.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="ke-title">KATSEYE</h2>
+
+                            <div class="ke-iframes-container">
+                                <iframe class="ke-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/6aJn7Cst74cj4lNIiPRgav?utm_source=generator&si=7837ce75633e4a8e" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="ke-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/1xOqGUkyxGQRdCvGpvWKmL?utm_source=generator&si=8d30901ddd294e00" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="ke-iframe" style="border-radius:12px" data-src="https://open.spotify.com/embed/track/4oggeZ0GoF5Cnf5srt0vQF?utm_source=generator&si=060b1368cacd449a" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="ke-footer-sentence">My flawless musical obsession.</div>
+                        </div>
+
+                        <div class="song-slide">
+                            <h2 class="dl-title">DUA LIPA</h2>
+
+                            <div class="dl-iframes-container">
+                                <iframe class="dl-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5nujrmhLynf4yMoMtj8AQF?utm_source=generator&si=6dc14acedc814f82" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="dl-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/11C4y2Yz1XbHmaQwO06s9f?utm_source=generator&si=4deb8c312eba46be" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe class="dl-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4rPkN1FMzQyFNP9cLUGIIB?utm_source=generator&si=bc8f9ae33f7b45e3" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                            <div class="dl-footer-sentence">The diva of pop music.</div>
+                        </div>
+                    </div>
+
+                    <div id="artist-bottom-quote" class="dynamic-quote hidden"></div>
+                </div>
+
+            </div>
+
+            <div id="content-nature" class="section-container">
+                <div id="nature-display-area">
+                    <div id="nature-grid">
+                        <div class="nature-item shape-2x2" data-hd="Nature/Original/Square-2.jpg">
+                            <img src="Nature/Preview/Square-2.webp">
+                        </div>
+
+                        <div class="nature-item shape-1x1" data-hd="Nature/Original/Square-small-1.jpg">
+                            <img src="Nature/Preview/Square-small-1.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x1" data-hd="Nature/Original/Square-small-2.jpg">
+                            <img src="Nature/Preview/Square-small-2.webp">
+                        </div>
+
+                        <div class="nature-item shape-2x1" data-hd="Nature/Original/Landscape-1.jpg">
+                            <img src="Nature/Preview/Landscape-1.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x2" data-hd="Nature/Original/Portrait-4.jpg">
+                            <img src="Nature/Preview/Portrait-4.webp">
+                        </div>
+
+                        <div class="nature-item shape-2x2" data-hd="Nature/Original/Square-1.jpg">
+                            <img src="Nature/Preview/Square-1.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x2" data-hd="Nature/Original/Portrait-3.jpg">
+                            <img src="Nature/Preview/Portrait-3.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-2x1" data-hd="Nature/Original/Landscape-2.jpg">
+                            <img src="Nature/Preview/Landscape-2.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x1" data-hd="Nature/Original/Square-small-3.jpg">
+                            <img src="Nature/Preview/Square-small-3.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x1" data-hd="Nature/Original/Square-small-4.jpg">
+                            <img src="Nature/Preview/Square-small-4.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-1x2" data-hd="Nature/Original/Portrait-1.jpg">
+                            <img src="Nature/Preview/Portrait-1.webp">
+                        </div>
+
+                        <div class="nature-item shape-1x2" data-hd="Nature/Original/Portrait-2.jpg">
+                            <img src="Nature/Preview/Portrait-2.webp">
+                        </div>
+                        
+                        <div class="nature-item shape-2x1" data-hd="Nature/Original/Landscape-3.jpg">
+                            <img src="Nature/Preview/Landscape-3.webp">
+                        </div>
+
+                        <div class="nature-item shape-1x1" data-hd="Nature/Original/Square-small-5.jpg">
+                            <img src="Nature/Preview/Square-small-5.webp">
+                        </div>
+
+                        <div class="nature-item shape-1x1"data-hd="Nature/Original/Square-small-6.jpg">
+                            <img src="Nature/Preview/Square-small-6.webp">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-astronomy" class="section-container">
+                <button class="nav-arrow left-arrow">&lt;</button>
+
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="astro-track">
+                        <div class="carousel-item active-slide" data-hd="Astronomy/Image-Original-1.jpg">
+                            <img src="Astronomy/Image-Preview-1.webp" alt="Constellation 1">
+                            <div class="slide-caption">Orion</div>
+                        </div>
+
+                        <div class="carousel-item" data-hd="Astronomy/Image-Original-2.jpg">
+                            <img src="Astronomy/Image-Preview-2.webp" alt="Constellation 2">
+                            <div class="slide-caption">Taurus</div>
+                        </div>
+
+                        <div class="carousel-item" data-hd="Astronomy/Image-Original-3.jpg">
+                            <img src="Astronomy/Image-Preview-3.webp" alt="Constellation 3">
+                            <div class="slide-caption">Trio</div>
+                        </div>
+
+                        <div class="carousel-item" data-hd="Astronomy/Image-Original-4.jpg">
+                            <img src="Astronomy/Image-Preview-4.webp" alt="Constellation 4">
+                            <div class="slide-caption">Star Map</div>
+                        </div>
+                        <div class="carousel-item" data-hd="Astronomy/Image-Original-5.jpg">
+                            <img src="Astronomy/Image-Preview-5.webp" alt="Constellation 5">
+                            <div class="slide-caption">Scorpius</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-arrow right-arrow">&gt;</button>
+            </div>
+
+            <div id="content-projects" class="section-container">
+                <div class="projects-split-container">
+                    <a href="javascript:void(0)" target="_blank" class="project-panel panel-left">
+                        <div class="project-content">
+                        <img src="ISS.png" alt="ISS Tracker" class="project-image">
+                        <div class="project-title">ISS TRACKER</div>
+                        <div class="project-intel">Live ISS position and Data.</div>
+                        </div>
+                    </a>
+
+                    <a href="javascript:void(0)" target="_blank" class="project-panel panel-right">
+                        <div class="project-content">
+                            <img src=".png" alt="Celestial Tracker" class="project-image">
+                            <div class="project-title">CELESTIAL TRACKER</div>
+                            <div class="project-intel">Real Time 3D Visualization of Solar System.</div>
+                        </div>
+                    </a>
+
+                    <svg class="laser-split" preserveAspectRatio="none">
+                        <line class="laser-core laser-desktop" x1="55%" y1="0" x2="45%" y2="100%" pathLength="100" />
+                        <line class="laser-core laser-tablet" x1="100%" y1="50%" x2="0" y2="50%" pathLength="100" />
+                        <line class="laser-core laser-mobile" x1="100%" y1="48%" x2="0" y2="52%" pathLength="100" />
+                    </svg>
+
+                    <div class="laser-text-wrapper">
+                        <div class="laser-text text-desktop">Projects</div>
+                        <div class="laser-text text-tablet">Projects</div>
+                        <div class="laser-text text-mobile">Projects</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hd-modal">
+                <div id="hd-controls">
+                    <button id="hd-draw-toggle">Draw</button>
+                    <button id="hd-annotate-toggle">Explore</button>
+                    <div id="hd-pic-title"></div>
+                </div>
+
+            <button id="close-modal">&times;</button>
+
+            <div class="loader"></div>
+
+
+            <div id="hd-image-stage">
+                <img id="hd-image-display" src="" alt="HD View">
+
+                <svg id="hd-annotation-layer" viewBox="0 0 2160 1436" aria-hidden="true">
+                    <g id="orion-asterism" class="asterism-group image-1-asterism">
+                        <line class="asterism-line" x1="708" y1="785" x2="730" y2="1120"></line>
+                        <line class="asterism-line" x1="708" y1="785" x2="929" y2="720"></line>
+                        <line class="asterism-line" x1="730" y1="1120" x2="1272" y2="1107"></line>
+                        <line class="asterism-line" x1="929" y1="720" x2="1223" y2="944"></line>
+                        <line class="asterism-line" x1="1272" y1="1107" x2="1253" y2="1024"></line>
+                        <line class="asterism-line" x1="1253" y1="1024" x2="1223" y2="944"></line>
+                        <line class="asterism-line" x1="1272" y1="1107" x2="1670" y2="1396"></line>
+                        <line class="asterism-line" x1="1223" y1="944" x2="1696" y2="860"></line>
+                    </g>
+
+                    <g id="taurus-asterism" class="asterism-group image-2-asterism">
+                        <line class="asterism-line" x1="80" y1="1293" x2="499" y2="872"></line>
+                        <line class="asterism-line" x1="499" y1="872" x2="709" y2="760"></line>
+                        <line class="asterism-line" x1="411" y1="1517" x2="814" y2="863"></line>
+                        <line class="asterism-line" x1="814" y1="863" x2="706" y2="760"></line>
+                        <line class="asterism-line" x1="709" y1="760" x2="794" y2="713"></line>
+                        <line class="asterism-line" x1="794" y1="713" x2="888" y2="696"></line>
+                        <line class="asterism-line" x1="814" y1="863" x2="859" y2="790"></line>
+                        <line class="asterism-line" x1="859" y1="790" x2="888" y2="696"></line>
+                        <line class="asterism-line" x1="888" y1="696" x2="1065" y2="512"></line>
+                        <line class="asterism-line" x1="1065" y1="512" x2="1286" y2="124"></line>
+                    </g>
+
+                    <g id="scorpius-asterism" class="asterism-group image-5-asterism">
+                        <line class="asterism-line" x1="1294" y1="806" x2="1134" y2="1168"></line>
+                        <line class="asterism-line" x1="1382" y1="917" x2="1134" y2="1168"></line>
+                        <line class="asterism-line" x1="1438" y1="1071" x2="1134" y2="1168"></line>
+
+                        <line class="asterism-line" x1="1134" y1="1168" x2="1096" y2="1269"></line>
+                        <line class="asterism-line" x1="1096" y1="1269" x2="1051" y2="1597"></line>
+                        <line class="asterism-line" x1="1051" y1="1597" x2="1094" y2="1785"></line>
+                        <line class="asterism-line" x1="1094" y1="1785" x2="1147" y2="2015"></line>
+                        <line class="asterism-line" x1="1147" y1="2015" x2="1011" y2="2129"></line>
+                        <line class="asterism-line" x1="1011" y1="2129" x2="786" y2="2231"></line>
+        
+                        <line class="asterism-line" x1="786" y1="2231" x2="631" y2="2136"></line>
+                        <line class="asterism-line" x1="631" y1="2136" x2="653" y2="2054"></line>
+                        <line class="asterism-line" x1="653" y1="2054" x2="696" y2="1913"></line>
+                    </g>
+
+                    <!-- Betelgeuse -->
+                    <g class="annotation-group image-1-annotation" id="anno-betelgeuse">
+                        <circle class="annotation-dot" cx="728" cy="1120" r="7"></circle>
+                        <polyline class="annotation-line"points="728,1120 660,1160 620,1160"></polyline>
+                        <text class="annotation-label annotation-label-left"x="600" y="1168">Betelgeuse</text>
+                    </g>
+
+                    <!-- Rigel -->
+                    <g class="annotation-group image-1-annotation" id="anno-rigel">
+                        <circle class="annotation-dot" cx="1695" cy="861" r="7"></circle>
+                        <polyline class="annotation-line"points="1695,861 1805,820 1910,820"></polyline>
+                        <text class="annotation-label"x="1925" y="826">Rigel</text>
+                    </g>
+
+                    <!-- Orion Belt -->
+                    <g class="annotation-group image-1-annotation" id="anno-alnilam">
+                        <circle class="annotation-dot" cx="1253" cy="1026" r="7"></circle>
+                        <polyline class="annotation-line"points="1253,1026 1360,980 1485,980"></polyline>
+                        <text class="annotation-label"x="1500" y="986">Orion Belt</text>
+                    </g>
+
+                    <!-- Orion Nebula -->
+                    <g class="annotation-group image-1-annotation" id="anno-nebula">
+                        <circle class="annotation-dot" cx="1477" cy="1102" r="7"></circle>
+                        <polyline class="annotation-line"points="1477,1102 1580,1160 1710,1160"></polyline>
+                        <text class="annotation-label"x="1725" y="1166">Orion Nebula</text>
+                    </g>
+
+                    <!-- Image 2 : Pleiades -->
+                    <g class="annotation-group image-2-annotation" id="anno-pleiades">
+                        <circle class="annotation-dot" cx="546" cy="263" r="7"></circle>
+                        <polyline class="annotation-line" points="546,263 660,230 815,230"></polyline>
+                        <text class="annotation-label" x="835" y="236">Pleiades</text>
+                    </g>
+
+                    <!-- Image 2 : Hyades -->
+                    <g class="annotation-group image-2-annotation" id="anno-hyades">
+                        <circle class="annotation-dot" cx="781" cy="785" r="7"></circle>
+                        <polyline class="annotation-line" points="781,785 690,720 540,720"></polyline>
+                        <text class="annotation-label annotation-label-left" x="520" y="726">Hyades</text>
+                    </g>
+
+                    <!-- Image 2 : Aldebaran -->
+                    <g class="annotation-group image-2-annotation" id="anno-aldebaran">
+                        <circle class="annotation-dot" cx="814" cy="864" r="7"></circle>
+                        <polyline class="annotation-line" points="814,864 935,930 1095,930"></polyline>
+                        <text class="annotation-label" x="1115" y="936">Aldebaran</text>
+                    </g>
+
+                    <!-- Image 4 : Betelgeuse -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-betelgeuse">
+                        <circle class="annotation-dot" cx="1493" cy="1343" r="7"></circle>
+                        <polyline class="annotation-line" points="1493,1343 1390,1280 1220,1280"></polyline>
+                        <text class="annotation-label annotation-label-left" x="1200" y="1286">Betelgeuse</text>
+                    </g>
+
+                    <!-- Image 4 : Rigel -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-rigel">
+                        <circle class="annotation-dot" cx="2389" cy="1102" r="7"></circle>
+                        <polyline class="annotation-line" points="2389,1102 2510,1060 2640,1060"></polyline>
+                        <text class="annotation-label" x="2655" y="1066">Rigel</text>
+                    </g> 
+
+                    <!-- Image 4 : Elnath -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-elnath">
+                        <circle class="annotation-dot" cx="573" cy="688" r="7"></circle>
+                        <polyline class="annotation-line" points="573,688 480,630 340,630"></polyline>
+                        <text class="annotation-label annotation-label-left" x="320" y="636">Elnath</text>
+                    </g>
+
+                    <!-- Image 4 : Aldebaran -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-aldebaran">
+                        <circle class="annotation-dot" cx="1329" cy="257" r="7"></circle>
+                        <polyline class="annotation-line" points="1329,257 1440,200 1580,200"></polyline>
+                        <text class="annotation-label" x="1595" y="206">Aldebaran</text>
+                    </g>
+
+                    <!-- Image 4 : Sirius -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-sirius">
+                    <circle class="annotation-dot" cx="2463" cy="2320" r="7"></circle>
+                    <polyline class="annotation-line" points="2463,2320 2580,2370 2700,2370"></polyline>
+                    <text class="annotation-label" x="2715" y="2376">Sirius</text>
+                    </g>
+
+                    <!-- Image 4 : Procyon -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-procyon">
+                        <circle class="annotation-dot" cx="1159" cy="2589" r="7"></circle>
+                        <polyline class="annotation-line" points="1159,2589 1060,2650 900,2650"></polyline>
+                        <text class="annotation-label annotation-label-left" x="880" y="2656">Procyon</text>
+                    </g>
+
+                    <!-- Image 4 : Alhena -->
+                    <g class="annotation-group image-4-annotation" id="anno-4-alhena">
+                        <circle class="annotation-dot" cx="927" cy="1668" r="7"></circle>
+                        <polyline class="annotation-line" points="927,1668 820,1610 660,1610"></polyline>
+                        <text class="annotation-label annotation-label-left" x="640" y="1616">Alhena</text>
+                    </g>
+
+                    <!-- Image 5 : Antares -->
+                    <g class="annotation-group image-5-annotation" id="anno-antares">
+                        <circle class="annotation-dot" cx="1134" cy="1168" r="7"></circle>
+                        <polyline class="annotation-line" points="1134,1168 1030,1130 900,1130"></polyline>
+                        <text class="annotation-label annotation-label-left" x="880" y="1136"> Antares</text>
+                    </g>
+
+                    <!-- Image 6 : Shaula -->
+                    <g class="annotation-group image-5-annotation" id="anno-shaula">
+                        <circle class="annotation-dot" cx="696" cy="1913" r="7"></circle>
+                        <polyline class="annotation-line" points="696,1913 790,1890 900,1890"></polyline>
+                        <text class="annotation-label" x="915" y="1896">Shaula</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+            
+        <div id="astronomy-label">Astronomy</div>
+
+        <div id="nature-label">Nature</div>
+    </div>
+
+<script src="main.js"></script>
+</body>
+</html>
