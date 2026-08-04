@@ -1220,13 +1220,15 @@ body {
 .bp-title-svg {
     width: 100%;
     max-width: 500px;
-    height: auto;
+    height: clamp(50px, 11vw, 72px);
     overflow: visible;
 }
 
 .bp-title-svg text {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(54px, 12vw, 60px);
     font-weight: 900;
+    letter-spacing: 8px;
     fill: transparent;
     stroke: #FF7BB2;
     stroke-width: 1.5px;
@@ -2504,6 +2506,7 @@ img {
     .active-slide .tw-title { animation-name: flickerFadeMobile; animation-play-state: running; }
     .active-slide .ke-title { animation-name: diamondSliceMobile; animation-play-state: running; }
     .active-slide .dl-title { animation-name: levitatingFloatMobile; animation-play-state: running; }
+    .bp-title-svg text { letter-spacing: 3px; }
 
     .aw-title, .ldr-title, .tw-title, .sc-title, .ke-title, .dl-title {
         white-space: nowrap !important;
