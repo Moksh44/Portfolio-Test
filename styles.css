@@ -1220,33 +1220,40 @@ body {
 .bp-title-svg {
     width: 100%;
     max-width: 500px;
-    height: auto;
-    aspect-ratio: 6 / 1; /* Forcibly locks the vector grid ratio */
-    flex-shrink: 0; /* Prevents the flex parent from squeezing it */
+    height: clamp(50px, 11vw, 72px);
     overflow: visible;
 }
 
 .bp-title-svg text {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 60px;
-    font-weight: 900;
-    /* Use 'em' instead of 'px' to force the mobile browser to scale the spacing */
-    letter-spacing: 0.15em; 
-    fill: transparent;
-    stroke: #FF7BB2;
-    stroke-width: 1.5px;
-    stroke-dasharray: 600;
-    stroke-dashoffset: 600;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 11vw, 60px);
+  font-weight: 900;
+  letter-spacing: 8px;
+  fill: transparent;
+  stroke: #FF7BB2;
+  stroke-width: 1.5px;
+}
+
+.bp-title-svg {
+  clip-path: inset(0 100% 0 0);
+}
+
+.active-slide .bp-title-svg {
+  animation: bpWipeReveal 1.2s cubic-bezier(0.2, 1, 0.3, 1) 0.8s forwards;
 }
 
 .active-slide .bp-title-svg text {
-    animation: drawBPTitle 1.5s ease-in-out 0.8s forwards;
+  animation: bpFillIn 0.6s ease 1.9s forwards;
 }
 
-@keyframes drawBPTitle {
-    0%   { stroke-dashoffset: 600; fill: transparent; }
-    70%  { stroke-dashoffset: 0; fill: transparent; }
-    100% { stroke-dashoffset: 0; fill: #FF7BB2; text-shadow: 0 0 15px rgba(255, 123, 178, 0.4); }
+@keyframes bpWipeReveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes bpFillIn {
+  from { fill: transparent; text-shadow: none; }
+  to   { fill: #FF7BB2; text-shadow: 0 0 15px rgba(255, 123, 178, 0.4); }
 }
 
 .bp-iframes-container {
@@ -2435,7 +2442,7 @@ img {
     }
 
    #hd-draw-toggle {
-       bottom: 18px;
+       bottom: 10vh;
        left: 18px;
     }
 
@@ -2463,7 +2470,7 @@ img {
 
    #hd-pic-title {
        font-size: 9px;
-       bottom: 22px;
+       bottom: 10vh;
        letter-spacing: 5px;
     }
 
@@ -2509,6 +2516,7 @@ img {
     .active-slide .tw-title { animation-name: flickerFadeMobile; animation-play-state: running; }
     .active-slide .ke-title { animation-name: diamondSliceMobile; animation-play-state: running; }
     .active-slide .dl-title { animation-name: levitatingFloatMobile; animation-play-state: running; }
+    .bp-title-svg text { letter-spacing: 3px; }
 
     .aw-title, .ldr-title, .tw-title, .sc-title, .ke-title, .dl-title {
         white-space: nowrap !important;
