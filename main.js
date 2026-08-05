@@ -959,6 +959,7 @@ function handleSongSwipe() {
     }
 }
 
+let iframeTrackerInterval = null;
 let lastFocusedIframe = null;
 
 function pauseOtherIframes(activeIframe) {
@@ -969,22 +970,48 @@ function pauseOtherIframes(activeIframe) {
     });
 }
 
+function startIframeTracker() {
+    if (!iframeTrackerInterval) {
+        iframeTrackerInterval = setInterval(() => {
+            const active = document.activeElement;
+            if (active && active.tagName === 'IFRAME') {
+                if (active !== lastFocusedIframe) {
+                    pauseOtherIframes(active);
+                    lastFocusedIframe = active;
+                }
+            }
+        }, 250);
+    }
+}
+
+function stopIframeTracker() {
+    if (iframeTrackerInterval) {
+        clearInterval(iframeTrackerInterval);
+        iframeTrackerInterval = null;
+    }
+    lastFocusedIframe = null;
+}
+
 window.addEventListener('blur', () => {
     setTimeout(() => {
-        if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
-            const currentIframe = document.activeElement;
-            
-            if (currentIframe !== lastFocusedIframe) {
-                pauseOtherIframes(currentIframe);
-                lastFocusedIframe = currentIframe;
+        const active = document.activeElement;
+        if (active && active.tagName === 'IFRAME') {
+            if (active !== lastFocusedIframe) {
+                pauseOtherIframes(active);
+                lastFocusedIframe = active;
             }
+            startIframeTracker();
         }
     }, 0);
 });
 
-window.addEventListener('focus', () => {
-    lastFocusedIframe = null;
-});
+window.addEventListener('focus', stopIframeTracker);
+window.addEventListener('touchstart', (e) => {
+    if (e.target.tagName !== 'IFRAME') {
+        window.focus();
+        stopIframeTracker();
+    }
+}, { passive: true });
 
 // NATURE GALLERY
 let currentZoom = 1;

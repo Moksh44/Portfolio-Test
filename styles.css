@@ -6,6 +6,11 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+html, body {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
 body {
     background-color: #020202;
     overflow: hidden; 
@@ -334,6 +339,10 @@ body {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-transform: uppercase;
 }
 
 #exit-button:hover {
@@ -549,7 +558,7 @@ body {
 
 #hd-modal {
     position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
+    top: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh;
     background: #000000;
     z-index: 2000;
     display: flex;
@@ -570,6 +579,7 @@ body {
     top: 30px; right: 40px;
     background: transparent; border: none;
     color: white; font-size: 40px; cursor: pointer;
+    z-index: 2200;
 }
 
 #hd-controls {
@@ -934,9 +944,10 @@ body {
 
 #hd-pic-title {
     position: absolute;
-    bottom: 40px;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: clamp(12px, 2.5vh, 24px);
     color: rgba(255, 255, 255, 0.70);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 11px;
@@ -2460,7 +2471,7 @@ img {
 
    #hd-pic-title {
        font-size: 9px;
-       bottom: 22px;
+       bottom: auto;
        letter-spacing: 5px;
     }
 
