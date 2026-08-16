@@ -1187,7 +1187,7 @@ document.getElementById('content-projects').addEventListener('click', (e) => {
 function initBirthdaySequence() {
     const today = new Date();
     
-    if (today.getMonth() === 7 && today.getDate() === 16) {
+    if (today.getMonth() === 7 && today.getDate() === 17) {
         document.body.classList.add('birthday-active');
         
         const introSequence = document.getElementById('intro-sequence');
