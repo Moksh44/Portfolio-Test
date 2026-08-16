@@ -43,8 +43,16 @@ document.addEventListener('click', (e) => {
 
     // ACTION 1: REVERT
     if (clickedExit) {
+        
         astroContent.classList.remove('show-content');
+        
+        document.querySelectorAll('#content-music iframe').forEach(iframe => {
+            const currentSrc = iframe.getAttribute('src');
+            if (currentSrc) iframe.setAttribute('src', currentSrc);
+        });
+        
         const pwdInput = document.getElementById('music-password-input');
+        
         if (pwdInput) {
             pwdInput.value = '';
             pwdInput.placeholder = '';
@@ -708,6 +716,11 @@ if (musicToggleBtn) {
         musicToggleBtn.classList.add('glitch-out');
         musicToggleBtn.classList.remove('glitch-in');
 
+        document.querySelectorAll('#content-music iframe').forEach(iframe => {
+            const currentSrc = iframe.getAttribute('src');
+            if (currentSrc) iframe.setAttribute('src', currentSrc);
+        });
+        
         if (currentMusicView === 'artists') {
             artistsGrid.classList.add('grid-exit');
             artistsGrid.classList.remove('grid-enter');
@@ -879,6 +892,11 @@ function goToSongSlide(index) {
     const oldSlide = songSlides[currentSongSlideIndex];
     const isScrollingDown = index > currentSongSlideIndex;
 
+    oldSlide.querySelectorAll('iframe').forEach(iframe => {
+        const currentSrc = iframe.getAttribute('src');
+        if (currentSrc) iframe.getAttribute('src, currentSrc');
+    });
+    
     oldSlide.classList.add('visited-slide');
 
     if (isScrollingDown) {
@@ -1020,6 +1038,48 @@ let panY = 0;
 let isDraggingZoom = false;
 let startDragX = 0;
 let startDragY = 0;
+let initialPinchDistance = null;
+let initialZoomOnPinch = 1;
+
+hdImageStage.addEventListener('touchstart', (e) => {
+    if (!isNatureMode()) return;
+    
+    // If two fingers are detected, initialize the pinch
+    if (e.touches.length === 2) {
+        e.preventDefault();
+        initialPinchDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+        );
+        initialZoomOnPinch = currentZoom;
+    }
+}, { passive: false });
+
+hdImageStage.addEventListener('touchmove', (e) => {
+    if (!isNatureMode()) return;
+    
+    // Calculate the new distance as fingers move
+    if (e.touches.length === 2 && initialPinchDistance) {
+        e.preventDefault();
+        const currentPinchDistance = Math.hypot(
+            e.touches[0].clientX - e.touches[1].clientX,
+            e.touches[0].clientY - e.touches[1].clientY
+        );
+
+        // Determine the zoom factor and apply limits (1 to 4)
+        const zoomFactor = currentPinchDistance / initialPinchDistance;
+        currentZoom = Math.min(Math.max(1, initialZoomOnPinch * zoomFactor), 4);
+
+        applyZoomAndPan();
+    }
+}, { passive: false });
+
+hdImageStage.addEventListener('touchend', (e) => {
+    // Reset pinch if fingers are lifted
+    if (e.touches.length < 2) {
+        initialPinchDistance = null;
+    }
+});
 
 function isNatureMode() {
     return hdModal.classList.contains('show-modal') &&
@@ -1122,3 +1182,42 @@ document.getElementById('content-projects').addEventListener('click', (e) => {
         projectPanels.forEach(p => p.classList.remove('touch-active'));
     }
 });
+
+// BIRTHDAY SPECIAL
+function initBirthdaySequence() {
+    const today = new Date();
+    
+    if (today.getMonth() === 7 && today.getDate() === 16) {
+        document.body.classList.add('birthday-active');
+        
+        const introSequence = document.getElementById('intro-sequence');
+        if (introSequence) {
+            const bdayMessage = document.createElement('div');
+            bdayMessage.className = 'bday-special-text';
+            bdayMessage.textContent = "Thank you for the special visit on my special day.";
+            introSequence.appendChild(bdayMessage);
+        }
+
+        const universe = document.getElementById('universe');
+        if (universe) {
+            for (let i = 0; i < 50; i++) {
+                const meteor = document.createElement('div');
+                meteor.className = 'cosmic-meteor';
+                
+                meteor.style.top = `${Math.random() * 150 - 50}vh`;
+                meteor.style.left = `${Math.random() * 150 + 20}vw`;
+                
+                meteor.style.animationDelay = `${(Math.random() * 3.7 + 0.8).toFixed(2)}s`;
+                meteor.style.animationDuration = `${(Math.random() * 1.2 + 0.8).toFixed(2)}s`;
+                
+                const colors = ['#E5C158', '#b464ff', '#00f2fe', '#ffffff'];
+                const chosenColor = colors[Math.floor(Math.random() * colors.length)];
+                meteor.style.setProperty('--meteor-color', chosenColor);
+                
+                universe.appendChild(meteor);
+            }
+        }
+    }
+}
+
+initBirthdaySequence();
