@@ -16,7 +16,6 @@ const carouselViewport = document.querySelector('.carousel-viewport');
 const musicDisplayArea = document.getElementById('music-display-area');
 const exitBtn = document.getElementById('exit-button');
 
-
 // ASTRONOMY CAROUSEL LOGIC
 const track = document.getElementById('astro-track');
 const slides = Array.from(document.querySelectorAll('.carousel-item'));
@@ -1044,7 +1043,6 @@ let initialZoomOnPinch = 1;
 hdImageStage.addEventListener('touchstart', (e) => {
     if (!isNatureMode()) return;
     
-    // If two fingers are detected, initialize the pinch
     if (e.touches.length === 2) {
         e.preventDefault();
         initialPinchDistance = Math.hypot(
@@ -1058,7 +1056,6 @@ hdImageStage.addEventListener('touchstart', (e) => {
 hdImageStage.addEventListener('touchmove', (e) => {
     if (!isNatureMode()) return;
     
-    // Calculate the new distance as fingers move
     if (e.touches.length === 2 && initialPinchDistance) {
         e.preventDefault();
         const currentPinchDistance = Math.hypot(
@@ -1066,7 +1063,6 @@ hdImageStage.addEventListener('touchmove', (e) => {
             e.touches[0].clientY - e.touches[1].clientY
         );
 
-        // Determine the zoom factor and apply limits (1 to 4)
         const zoomFactor = currentPinchDistance / initialPinchDistance;
         currentZoom = Math.min(Math.max(1, initialZoomOnPinch * zoomFactor), 4);
 
@@ -1075,7 +1071,6 @@ hdImageStage.addEventListener('touchmove', (e) => {
 }, { passive: false });
 
 hdImageStage.addEventListener('touchend', (e) => {
-    // Reset pinch if fingers are lifted
     if (e.touches.length < 2) {
         initialPinchDistance = null;
     }
